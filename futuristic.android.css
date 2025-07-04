@@ -1,0 +1,164 @@
+body {
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+#exchangeRatesContainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+}
+
+.futuristic-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.futuristic-header h1 {
+    font-size: 2.5rem;
+    color: #00ffff;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    margin-bottom: 0.5rem;
+}
+
+.futuristic-header .company-image img {
+    max-width: 180px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.futuristic-header .time {
+    font-size: 1.2rem;
+    color: #e0f7fa;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.futuristic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.futuristic-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.futuristic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+}
+
+.currency-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.currency-title img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.currency-title span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.3);
+}
+
+.currency-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 100%;
+    margin-top: auto;
+    gap: 0.25rem;
+    text-align: right;
+}
+
+.detail-label {
+    font-size: 0.9rem;
+    color: #b2ebf2;
+}
+
+.detail-value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.detail-value.detail-buy {
+    color: #00e676;
+}
+
+.detail-value.detail-sell {
+    color: rgb(224, 0, 0);
+}
+
+/*Responsive Mobil Uyarlama */
+@media (max-width: 1024px) {
+    .futuristic-grid {
+        grid-template-columns: repeat(2, 1fr); /* tabletler için 2 sütun */
+    }
+}
+
+@media (max-width: 768px) {
+    .futuristic-grid {
+        grid-template-columns: 1fr; /* mobilde tek sütun */
+        gap: 1rem;
+    }
+
+    .futuristic-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .futuristic-header .company-image img {
+        max-width: 120px;
+    }
+
+    .currency-title img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .currency-title span {
+        font-size: 1.1rem;
+    }
+
+    .detail-value {
+        font-size: 1.1rem;
+    }
+
+    .detail-label {
+        font-size: 0.8rem;
+    }
+
+    .futuristic-card {
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+    }
+
+    #exchangeRatesContainer {
+        padding: 1rem;
+        margin: 1.5rem auto;
+    }
+}
