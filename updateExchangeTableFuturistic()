@@ -1,0 +1,50 @@
+function updateExchangeTableFuturistic() {
+    const container = document.getElementById("exchangeRatesContainer");
+    if (!container) return;
+
+    const t = config.translations[LANG];
+    const SPREAD = config.api.spread;
+    const logo = config.company.logoUrl;
+    const symbol = window.symbols[config.api.baseCurrency]?.symbol || "";
+
+    container.innerHTML = `
+        <div class="futuristic-header">
+            <div class="company-image"><img src="${logo}" alt="Logo"></div>
+            <h1>${t.title}</h1>
+            <div class="time"></div>
+        </div>
+        <div class="futuristic-grid" id="futuristicCards"></div>
+    `;
+
+    startClock();
+
+    const grid = document.getElementById("futuristicCards");
+    if (!grid) return;
+
+    config.ui.currencies.forEach(currency => {
+        if (currency === config.api.baseCurrency) return;
+
+        const rate = window.latestRates[currency];
+        if (!rate) return;
+
+        const buy = parseFloat(rate).toFixed(3);
+        const sell = (parseFloat(buy) * (1 + SPREAD)).toFixed(3);
+        const flag = `asset/flags/${currency.toLowerCase()}.png`;
+
+        const card = document.createElement("div");
+        card.className = "futuristic-card";
+        card.innerHTML = `
+            <div class="currency-title">
+                <img src="${flag}" alt="${currency}">
+                <span>${currency}</span>
+            </div>
+            <div class="currency-details">
+                <div class="detail-label">${t.buy}</div>
+                <div class="detail-value detail-buy">${buy} ${symbol}</div>
+                <div class="detail-label">${t.sell}</div>
+                <div class="detail-value detail-sell">${sell} ${symbol}</div>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
